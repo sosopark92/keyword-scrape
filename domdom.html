@@ -1,0 +1,108 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>네이버 :: 데이터랩 쇼핑인사이트</title>
+    <link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static.datalab/202212280601/css/gnb.css">
+    <link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static.datalab/202212280601/css/search.css">
+    <link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static.datalab/202212280601/css/w.css">
+    <link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static.datalab/202212280601/css/graph_m.css">
+
+    <link rel="icon" sizes="192x192" href="https://ssl.pstatic.net/static.datalab/202212280601/img/favicon/android_legacy_xxxhpdi_192x192.png" >
+    <link rel="icon" sizes="144x144" href="https://ssl.pstatic.net/static.datalab/202212280601/img/favicon/android_legacy_xxhpdi_144x144.png" >
+    <link rel="icon" sizes="96x96" href="https://ssl.pstatic.net/static.datalab/202212280601/img/favicon/android_legacy_xhdpi_96x96.png" >
+    <link rel="icon" sizes="72x72" href="https://ssl.pstatic.net/static.datalab/202212280601/img/favicon/android_legacy_hdpi_72X72.png" >
+
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://ssl.pstatic.net/static.datalab/202212280601/img/favicon/iOS_iPhone@3x_180X180.png">
+    <link rel="apple-touch-icon-precomposed" sizes="167x167" href="https://ssl.pstatic.net/static.datalab/202212280601/img/favicon/iOS_iPadPro@2x_167X167.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://ssl.pstatic.net/static.datalab/202212280601/img/favicon/iOS_iPad@2x_152X152.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://ssl.pstatic.net/static.datalab/202212280601/img/favicon/iOS_iPhone@2x_120X120.png">
+    
+    
+    <meta property="og:title" content="네이버 데이터랩 : 쇼핑인사이트"/>
+    <meta property="og:url" content="https://m.datalab.naver.com/sCategory.naver"/>
+    <meta property="og:image" content="https://ssl.pstatic.net/static.datalab/img2019/datalab_og_244x244.jpg"/>
+    <meta property="og:description" content="쇼핑 분야별 클릭 추이와 검색어 현황을 확인할 수 있습니다."/>
+    <meta name="description" content="쇼핑 분야별 클릭 추이와 검색어 현황을 확인할 수 있습니다.">
+
+</head>
+<body>
+<!-- [D] 검색창 확장 활성화 header_search 추가 -->
+<div class="wrap">
+    
+    
+    
+
+    
+    <div class="header toggle">
+        <div class="Ngnb" style="will-change: contents;">
+            <span class="Ngnb_logo"><a href="https://m.naver.com" class="Nlogo_link"><span class="Nicon_logo">NAVER</span></a></span>
+            <div class="Ngnb_service">
+                <h1 class="Nservice_item"><a href="/"><span class="Nicon_service">데이터랩</span></a></h1>
+            </div>
+        </div>
+    </div>
+    
+
+    
+<div class="nav">
+    <h2 class="blind">탭 선택</h2>
+    <div id="_topMenuIscroll" class="nav_lst_wrap">
+        <ul class="nav_lst v2">
+            <!-- [D] 활성화 active 추가 -->
+            <li class="_menuItem active"><a href="/sCategory.naver"><span>쇼핑인사이트</span></a></li>
+            <li class="_menuItem "><a href="/trendSearch.naver"><span>검색어트렌드</span></a></li>
+            <li class="_menuItem "><a href="/commentStatNews.naver"><span>뉴스댓글통계</span></a></li>
+        </ul>
+    </div>
+</div>
+<div class="nav_lnb" style="display:block">
+    <h2 class="blind">LNB 탭 선택</h2>
+    <ul class="nav_lnb_list">
+        <li class="active"><a href="sCategory.naver"><span>분야통계</span></a></li>
+        <li><a href="sPopularKeyword.naver"><span>인기검색어</span></a></li>
+        <li><a href="sKeyword.naver"><span>검색어통계</span></a></li>
+    </ul>
+</div>
+<span style="display:none" data-valid-cid="true"></span>
+<div id="_category_area">
+    <category-request default-cid="50000000" bind-to="_period_category" page-type="category"></category-request>
+    <category-result default-cid="50000000" bind-to="_period_category"></category-result>
+</div>
+
+    <div class="footer">
+        <p class="service_box">
+            <a href="http://m.datalab.naver.com/m/sCategory.naver?&mobile" id="footer_PC_version">PC버전</a>
+            <a href="http://mobile.naver.com/application/safariApp.nhn">전체서비스</a>
+        </p>
+        <p class="service_box2">
+            <a href="https://help.naver.com/service/17528?lang=ko">데이터랩 도움말</a>
+            <a href="https://help.naver.com/index.help?lang=ko" class="fot_box2_a">문제신고</a>
+        </p>
+        <p class="service_box3">
+            <a href="http://www.navercorp.com/ko/index.nhn" class="lk_naver">ⓒ NAVER Corp.</a>
+        </p>
+    </div>
+</div>
+<script type="text/javascript">
+    (function() {
+        window.$DATALAB = (typeof $DATALAB != "undefined") ? $DATALAB : {};
+        window.$DATALAB.CONFIG = (typeof $DATALAB.CONFIG != "undefined") ? $DATALAB.CONFIG : {};
+
+        $DATALAB.CONFIG.request_url = "'http://m.datalab.naver.com/m/sCategory.naver";
+        $DATALAB.CONFIG.realTimeOpenDate = "";
+
+        if(location.href.indexOf("dev") > 0) {
+            window.lcs_SerName = "alpha-lcs.naver.com";
+        }
+    })();
+</script>
+<script type="text/javascript" src="https://ssl.pstatic.net/static.datalab/202212280601/js/m_vendor.202212280601.js"></script>
+
+<script type="text/javascript" src="https://ssl.pstatic.net/static.datalab/202212280601/js/m_graph.202212280601.js"></script>
+<script type="text/javascript" src="https://ssl.pstatic.net/static.datalab/202212280601/js/m_shopping_insight.202212280601.js"></script>
+
+</body>
+</html>
