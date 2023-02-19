@@ -8,12 +8,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 import time
+from random import randint
+import openpyxl as op
 
-# 엑셀파일 열기
-wb = Workbook()
-ws = wb.create_sheet('22_과일_쇼핑검색TOP500')
-wb.remove_sheet(wb['Sheet'])
-ws.append((['월', '순위', '인기검색어']))
 
 chrome_options = webdriver.ChromeOptions()
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
@@ -120,59 +117,67 @@ time.sleep(1)
 driver.find_element(
     By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/a').click()  # 조회하기
 
-rand_value = randint(5, MAX_SLEEP_TIME)
-time.sleep(rand_value)
+rand_value = randint(1, 30)
+# time.sleep(rand_value)
+
+rand_value_short = randint(1, 3)
+# time.sleep(rand_value_short)
+
+# 엑셀파일 열기
+wb = op.Workbook()
+ws = wb.create_sheet('22_과일_쇼핑검색TOP500')
+wb.remove_sheet(wb['Sheet'])
+ws.append((['순위', '인기검색어', '월']))
 
 # 25, 21
 for i in range(0, 25):
     for j in range(1, 21):
         path = f'//*[@id="content"]/div[2]/div/div[2]/div[2]/div/div/div[1]/ul/li[{j}]'
-        result = "\n1월" + driver.find_element(By.XPATH, path).text
+        result = driver.find_element(By.XPATH, path).text + "\n1월"
         print(result.split('\n'))
-        time.sleep(0.3)
+        time.sleep(rand_value_short)
         ws.append(result.split('\n'))
 
     driver.find_element(
         By.XPATH, '//*[@id="content"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/a[2]').click()
     time.sleep(rand_value)
 
-
 # 기간 업데이트
 
-# 12, 13
-for x in range(0, 12):
-    for k in range(2, 13):
-        # 종료 월
-        driver.find_element(
-            By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/div/div[2]/div[2]/span[3]/div[2]/span').click()
-        time.sleep(0.5)
-        # 2월~12월
-        driver.find_element(
-            By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/div/div[2]/div[2]/span[3]/div[2]/ul/li[2]/a').click()
-        time.sleep(1)
-        # 시작 월
-        driver.find_element(
-            By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/div/div[2]/div[2]/span[1]/div[2]/span').click()
-        time.sleep(1)
-        # 2월~12월
-        driver.find_element(
-            By.XPATH, f'//*[@id="content"]/div[2]/div/div[1]/div/div/div[2]/div[2]/span[1]/div[2]/ul/li[{k}]/a').click()
-        time.sleep(2)
+# 11, 13
 
-        driver.find_element(
-            By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/a').click()  # 조회하기
+for k in range(2, 13):
+    # 종료 월
+    driver.find_element(
+        By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/div/div[2]/div[2]/span[3]/div[2]/span').click()
+    time.sleep(0.5)
+    # 2월~12월
+    driver.find_element(
+        By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/div/div[2]/div[2]/span[3]/div[2]/ul/li[2]/a').click()
+    time.sleep(1)
+    # 시작 월
+    driver.find_element(
+        By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/div/div[2]/div[2]/span[1]/div[2]/span').click()
+    time.sleep(1)
+    # 2월~12월
+    driver.find_element(
+        By.XPATH, f'//*[@id="content"]/div[2]/div/div[1]/div/div/div[2]/div[2]/span[1]/div[2]/ul/li[{k}]/a').click()
+    time.sleep(2)
+
+    driver.find_element(
+        By.XPATH, '//*[@id="content"]/div[2]/div/div[1]/div/a').click()  # 조회하기
 # 25,21
-        for i in range(0, 25):
-            for j in range(1, 21):
-                path = f'//*[@id="content"]/div[2]/div/div[2]/div[2]/div/div/div[1]/ul/li[{j}]'
-                result = f"\n{k}월" + driver.find_element(By.XPATH, path).text
-                print(result.split('\n'))
-                time.sleep(0.3)
+    for i in range(0, 25):
+        for j in range(1, 21):
+            path = f'//*[@id="content"]/div[2]/div/div[2]/div[2]/div/div/div[1]/ul/li[{j}]'
+            result = driver.find_element(By.XPATH, path).text + f"\n{k}월"
+            print(result.split('\n'))
+            time.sleep(rand_value_short)
 
-            driver.find_element(
-                By.XPATH, '//*[@id="content"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/a[2]').click()
-            time.sleep(rand_value)
-            ws.append(result.split('\n'))
+        driver.find_element(
+            By.XPATH, '//*[@id="content"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/a[2]').click()
+        time.sleep(rand_value)
+        ws.append(result.split('\n'))
 
-wb.save(r'C:\Users\sosop\OneDrive\바탕 화면\NaverDataLabTop500.xlsx')
+wb.save(r'C:\Users\sosop\OneDrive\바탕 화면\agriculture\NaverDataLabTop500.xlsx')
 wb.close
